@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:my_first_app/widget/button.dart';
 void main() {
   runApp(App());
 }
@@ -47,7 +47,7 @@ class App extends StatelessWidget {
               Text('Total balance'
               ,style: TextStyle(
                 fontSize: 22,
-                color: Colors.white.withOpacity(0.8)
+                color: Colors.white.withAlpha(150)
               ),),
               SizedBox(height: 5,),
               Text('\$5 194 482'
@@ -60,33 +60,8 @@ class App extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(45)
-                    ),
-                    child: Padding(padding: EdgeInsets.symmetric(
-                      vertical: 20, horizontal: 50,
-                    ),
-                    child: Text('Transfer',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),),),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1F2123),
-                      borderRadius: BorderRadius.circular(45)
-                    ),
-                    child: Padding(padding: EdgeInsets.symmetric(
-                      vertical: 20, horizontal: 50,
-                    ),
-                    child: Text('Request',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),),),
-                  )
+                  Button(text: 'transfer', bgColor: Colors.amber, textColor: Colors.black,),
+                  Button(text: 'request', bgColor: Colors.black, textColor: Colors.white),
                 ],
               )
             ], 
