@@ -49,7 +49,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                       color: Theme.of(context).cardColor,
                     ),
-                    child: Column(children: [Text('Pomodors'), Text('0')]),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Pomodors',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Theme.of(
+                              context,
+                            ).textTheme.headlineLarge!.color,
+                          ),
+                        ),
+                        Text('0'),
+                      ],
+                    ),
                   ),
                 ),
               ],
