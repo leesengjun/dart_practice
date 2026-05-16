@@ -10,22 +10,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int totalSeconds = 1500;
+  int totalSeconds = 10;
   bool isRunning = false;
+  int totalPomdoros = 0;
   late Timer timer; // tiemr 오타 수정
 
   void onTick(Timer timer) {
-    setState(() {
-      totalSeconds = totalSeconds - 1;
-    });
+    if (totalSeconds == 0) {
+      setState(() {
+        totalPomdoros = totalPomdoros + 1;
+        isRunning = false;
+        totalSeconds = 1500;
+      });
+      timer.cancel();
+    } else {
+      setState(() {
+        totalSeconds = totalSeconds - 1;
+      });
+    }
   }
 
   void onStartPressed() {
     // Timer.periodic(시간, (timer) { 실행할 내용 })
     timer = Timer.periodic(const Duration(seconds: 1), onTick);
-    setState() {
+    setState(() {
       isRunning = true;
-    }
+    });
   }
 
   void onPausePressed() {
@@ -95,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          '0',
+                          '$totalPomdoros',
                           style: TextStyle(
                             fontSize: 58,
                             fontWeight: FontWeight.w600,
